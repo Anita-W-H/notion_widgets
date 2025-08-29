@@ -1,160 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Messy Gallery with Captions</title>
+
+  <!-- Bootstrap (optional, just for grid spacing/columns) -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+  <!-- BaguetteBox Lightbox -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
-  <link href="./css/thumbnail-gallery.css" rel="stylesheet" />
 
   <style>
-    .tz-gallery {
-      padding: 40px;
-    }
+    body { background:#fafafa; }
+    .tz-gallery { padding: 40px 0; }
 
+    /* Card look */
     .tz-gallery .thumbnail {
       padding: 0;
       margin-bottom: 30px;
       background-color: #fff;
-      border-radius: 4px;
+      border-radius: 8px;
       border: none;
-      transition: 0.15s ease-in-out;
+      transition: transform .15s ease-in-out, box-shadow .15s ease-in-out;
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
     }
-
     .tz-gallery .thumbnail:hover {
-      transform: translateY(-10px) scale(1.02);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 22px rgba(0,0,0,.08);
     }
 
-    .baguetteBox-button {
-      background-color: transparent !important;
-    }
-
-
-    .carousel-inner>.item>a>img,
-    .carousel-inner>.item>img,
-    .img-responsive,
-    .thumbnail a>img,
-    .thumbnail>img {
+    /* Natural aspect ratio; scale down to column width */
+    .tz-gallery .thumbnail img {
       display: block;
-      max-width: 100%;
-      height: auto;
+      width: 100%;  /* prevent overflow; scales large images down */
+      height: auto; /* preserve aspect ratio */
     }
+
+    /* Optional caption shown under each thumbnail */
+    .caption {
+      font-size: .9rem;
+      padding: .75rem .9rem .9rem;
+      color: #555;
+    }
+
+    .baguetteBox-button { background: transparent !important; }
   </style>
-
 </head>
-
 <body>
 
-
-  <main>
-
-
-    <section id="gallery">
-      <div class=" gallery-container container">
-        <div class="tz-gallery">
-
-          <div class="row">
-
-            <!---------------------------------------------->
-            <div data-aos="flip-up" class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <a class="lightbox" href="给我贴！.jpg">
-                  <img src="给我贴！.jpg">
-                </a>
-              </div>
+<main>
+  <section id="gallery">
+    <div class="container gallery-container">
+      <div class="tz-gallery">
+        <div class="row">
+          <!-- Item 1 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <a class="lightbox" href="给我贴！.jpg" data-caption="给我贴！ — sticker concept art">
+                <img src="给我贴！.jpg" alt="给我贴！ — sticker concept art" loading="lazy">
+              </a>
+              <div class="caption">给我贴！ — sticker concept art</div>
             </div>
+          </div>
 
-            <!---------------------------------------------->
-
-            <div data-aos="flip-up" data-aos-delay="20" class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <a class="lightbox" href="2.png">
-                  <img src="2.png">
-                </a>
-              </div>
+          <!-- Item 2 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <a class="lightbox" href="2.png" data-caption="Character sheet — v2">
+                <img src="2.png" alt="Character sheet — v2" loading="lazy">
+              </a>
+              <div class="caption">Character sheet — v2</div>
             </div>
-            <!---------------------------------------------->
+          </div>
 
-            <div data-aos="flip-up" data-aos-delay="40" class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <a class="lightbox" href="3.png">
-                  <img src="3.png">
-                </a>
-
-              </div>
+          <!-- Item 3 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <a class="lightbox" href="3.png" data-caption="Storyboard frame 3">
+                <img src="3.png" alt="Storyboard frame 3" loading="lazy">
+              </a>
+              <div class="caption">Storyboard frame 3</div>
             </div>
-            <!---------------------------------------------->
+          </div>
 
-            <div data-aos="flip-up" data-aos-delay="60" class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <a class="lightbox" href="4.png">
-                  <img src="4.png">
-                </a>
-              </div>
+          <!-- Item 4 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <a class="lightbox" href="4.png" data-caption="Exploration — palette test">
+                <img src="4.png" alt="Exploration — palette test" loading="lazy">
+              </a>
+              <div class="caption">Exploration — palette test</div>
             </div>
-            <!---------------------------------------------->
+          </div>
 
-            <div data-aos="flip-up" data-aos-delay="80" class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <a class="lightbox" href="5.png">
-                  <img src="5.png">
-                </a>
-              </div>
+          <!-- Item 5 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <a class="lightbox" href="5.png" data-caption="Pose study">
+                <img src="5.png" alt="Pose study" loading="lazy">
+              </a>
+              <div class="caption">Pose study</div>
             </div>
-            <!---------------------------------------------->
+          </div>
 
-            <div data-aos="flip-up" data-aos-delay="100" class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <a class="lightbox" href="6.png">
-                  <img src="6.png">
-                </a>
-              </div>
+          <!-- Item 6 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <a class="lightbox" href="6.png" data-caption="UI concept — v1">
+                <img src="6.png" alt="UI concept — v1" loading="lazy">
+              </a>
+              <div class="caption">UI concept — v1</div>
             </div>
-            <!---------------------------------------------->
+          </div>
 
-            <div data-aos="flip-up" data-aos-delay="120" class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <a class="lightbox" href="7.png">
-                  <img src="7.png">
-                </a>
-              </div>
+          <!-- Item 7 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <a class="lightbox" href="7.png" data-caption="UI concept — v2">
+                <img src="7.png" alt="UI concept — v2" loading="lazy">
+              </a>
+              <div class="caption">UI concept — v2</div>
             </div>
-            <!---------------------------------------------->
+          </div>
 
-            <div data-aos="flip-up" data-aos-delay="140" class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <a class="lightbox" href="8.png">
-                  <img src="8.png">
-                </a>
-              </div>
+          <!-- Item 8 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <a class="lightbox" href="8.png" data-caption="Logo exploration">
+                <img src="8.png" alt="Logo exploration" loading="lazy">
+              </a>
+              <div class="caption">Logo exploration</div>
             </div>
-            <!---------------------------------------------->
+          </div>
 
-            <div data-aos="flip-up" data-aos-delay="160" class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <a class="lightbox" href="9.png">
-                  <img src="9.png">
-                </a>
-              </div>
+          <!-- Item 9 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <a class="lightbox" href="9.png" data-caption="Storyboard frame 9">
+                <img src="9.png" alt="Storyboard frame 9" loading="lazy">
+              </a>
+              <div class="caption">Storyboard frame 9</div>
             </div>
-
-
-
-
           </div>
         </div>
       </div>
+    </div>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-      <script>
-        baguetteBox.run('.tz-gallery');
-      </script>
+    <!-- BaguetteBox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <script>
+      // Enable captions via data-caption or fallback to img alt
+      baguetteBox.run('.tz-gallery', {
+        captions: function (el) {
+          return el.getAttribute('data-caption')
+              || (el.querySelector('img') ? el.querySelector('img').alt : '');
+        }
+      });
+    </script>
+  </section>
+</main>
 
-    </section>
-
-
-  </main>
-
-
+</body>
 </html>
+
